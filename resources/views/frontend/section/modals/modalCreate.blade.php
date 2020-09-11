@@ -1,0 +1,78 @@
+<!-- /.Modal Create Ticket -->
+<div class="modal fade" id="modal-default">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Ticket Nuevo</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <!-- form start -->
+        <form role="form" action="{{url('ticket')}}" method="POST" id="formTicket">
+          {{ csrf_field() }}
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Responsable</label>
+                        <select class="form-control" name="userId">
+                          @foreach ($users as $user)
+                            <option value="{{$user->id}}" >
+                              {{$user->name}}
+                            </option>
+                          @endforeach
+                        </select>
+                      </div>
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label>Establecimiento</label>
+                            <select class="form-control"  name="institution">
+                              @foreach ($institutions as $institution)
+                              <option value="{{$institution->id}}">
+                                {{$institution->name}}
+                              </option>
+                              @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                      <label>Fecha de Inicio</label>
+                      <input id="startDate" width="270"  name="start_date" autocomplete="off"/>  
+                    </div> 
+                    <div class="form-group">
+                      <label>Fecha Limite</label>
+                      <input id="endDate" width="270" / name="end_date" autocomplete="off">  
+                    </div>                   
+                    <!-- radio -->
+                   <div class="form-group">
+                      <div> 
+                        <label> Prioridad </label>
+                      </div>
+                      @foreach ($priorities as $priority)
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" value="{{$priority->id}}" name="priority">
+                          <label c lass="form-check-label" name="priority">{{$priority->name}}</label>
+                        </div>  
+                      @endforeach
+                    </div>     
+                    <div class="form-group">
+                      <label>Problematica</label>
+                      <textarea class="form-control" rows="3" placeholder="Escribir ..." name="description"></textarea>
+                    </div>
+                    
+                </div>
+                <div class="modal-footer justify-content-between">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                  <button  type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+              </div>
+            </form>
+        <!-- /.form -->
+        </div>
+        
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+  <!-- /.Modal Create Ticket -->
