@@ -198,10 +198,10 @@
             </tr>
             
             <tr class="total">
-                <td></td>
+                <td>Total:</td>
                 
                 <td id="total">
-                   Total: $385.00
+                   
                 </td>
             </tr>
         </table>

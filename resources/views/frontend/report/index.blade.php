@@ -241,10 +241,10 @@
   function barCharts(respuesta){
     
 
-    let meses = [];
-    let ticketsResolved = [];
-    let ticketsInProgress = [];
-    let unresolvedTickets = [];
+    var meses = [];
+    var ticketsResolved = [];
+    var ticketsInProgress = [];
+    var unresolvedTickets = [];
 
 
     result = respuesta.reduce(function (r, a) {
@@ -268,9 +268,9 @@
         }
       });
     });
-
-    
-    
+    localStorage.setItem('ticketsResolved', JSON.stringify(ticketsResolved));
+    localStorage.setItem('ticketsInProgress', JSON.stringify(ticketsInProgress));
+    localStorage.setItem('unresolvedTickets', JSON.stringify(unresolvedTickets));
 
     //-------------
     //- BAR CHART -
